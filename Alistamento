@@ -1,0 +1,29 @@
+from datetime import date
+atual = date.today().year
+print('''\033[32mALISTAMENTO OBRIGATÓRIO\033[m:
+[1] MASCULINO:
+[2] FEMININO:''')
+opção = int(input('\033[34mEscolha sua opção\033[m:'))
+if opção==1:
+    print('\033[32mOBRIGATÓRIO\033[m')
+    ano = int(input('\033[33mAno de nascimento:\033[m'))
+    idade = atual-ano
+    print('Você nasceu em \033[33m{}\033[m em \033[33m{}\033[m você tem \033[33m{}\033[m anos'.format(ano,atual,idade))
+    if idade==18:
+        print('Você tem que se alistar IMEDIATAMENTE')
+    elif idade<18:
+        saldo = 18 -idade
+        print('Falta ainda \033[33m{}\033[m anos para seu alistamento '.format(saldo))
+        anos = atual+saldo
+        print('Seu alistamento será em \033[33m{}\033[m'.format(anos))
+    elif idade>18:
+        saldo =idade-18
+        print('Você já deveria ter se alistado há \033[33m{}\033[m anos '.format(saldo))
+        anos=atual-saldo
+        print('Seu alistamento foi em \033[33m{}\033[m'.format(anos))
+elif opção==2:
+    print('\033[31mNÃO É OBRIGATÓRIO\033[m')
+else:
+    print('\033[33mOPÇAÕ INVÁLIDA\033[m')
+
+
